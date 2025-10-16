@@ -38,7 +38,7 @@ function setupWebSocket(fastify) {
                         return;
                     }
                     const senderId = Array.from(connections.keys()).find(key => connections.get(key) === connection.socket);
-                    if (!senderId) {
+                    if (!senderId) { // in case sm1 sends from terminal .
                         connection.socket.send(JSON.stringify({ type: 'error', message: 'Authentication required' }));
                         return;
                     }
@@ -69,6 +69,7 @@ function setupWebSocket(fastify) {
                             }));
                         }
                     }
+                    // idnt think this is used ig. 
                     else if (type === 'typing' && receiverId !== undefined) {
                         const receiverSocket = connections.get(receiverId);
                         if (receiverSocket) {

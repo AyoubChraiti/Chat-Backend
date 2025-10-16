@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.hashPassword = hashPassword;
 exports.escapeHtml = escapeHtml;
 const crypto_1 = __importDefault(require("crypto"));
+// for haching stufff
 function hashPassword(password) {
     return crypto_1.default.createHash('sha256').update(password).digest('hex');
 }

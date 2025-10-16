@@ -13,7 +13,6 @@ const user_routes_1 = require("./routes/user.routes");
 const message_routes_1 = require("./routes/message.routes");
 const game_routes_1 = require("./routes/game.routes");
 const server = (0, fastify_1.default)({ logger: true });
-// Register plugins
 server.register(cors_1.default, {
     origin: config_1.config.corsOrigins,
     credentials: true
@@ -26,7 +25,7 @@ server.register(auth_routes_1.authRoutes);
 server.register(user_routes_1.userRoutes);
 server.register(message_routes_1.messageRoutes);
 server.register(game_routes_1.gameRoutes);
-// Start server
+// server
 const start = async () => {
     try {
         await server.listen({ port: config_1.config.port, host: config_1.config.host });

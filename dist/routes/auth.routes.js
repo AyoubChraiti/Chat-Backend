@@ -4,7 +4,7 @@ exports.authRoutes = authRoutes;
 const database_service_1 = require("../services/database.service");
 const crypto_1 = require("../utils/crypto");
 async function authRoutes(fastify) {
-    // User registration
+    // usr regis
     fastify.post('/api/register', async (request, reply) => {
         const { username, password } = request.body;
         const hashedPassword = (0, crypto_1.hashPassword)(password);
@@ -16,7 +16,7 @@ async function authRoutes(fastify) {
             reply.code(400).send({ error: 'Username already exists' });
         }
     });
-    // User login
+    // urs login
     fastify.post('/api/login', async (request, reply) => {
         const { username, password } = request.body;
         const hashedPassword = (0, crypto_1.hashPassword)(password);
